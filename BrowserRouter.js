@@ -1,4 +1,5 @@
-export default function BrowserRouter() {
-  return ;
+export default function BrowserRouter(props) {
+  console.log(props);
+  return props.children ;
 }
 
