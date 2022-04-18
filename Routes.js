@@ -1,6 +1,12 @@
 import React, { isValidElement } from "react";
 import { useRoutes } from "./hooks";
 
+
+export default function Routes({children}) {
+  const routes = createRoutesFromChildren(children)
+  return useRoutes(routes)
+}
+
 export function createRoutesFromChildren(children) {
   const routes = [];
   React.Children.forEach(children, (child) => {
@@ -17,9 +23,4 @@ export function createRoutesFromChildren(children) {
     routes.push(route);
   })
   return routes;
-}
-
-export default function Routes({children}) {
-  const routes = createRoutesFromChildren(children)
-  return useRoutes(routes)
 }

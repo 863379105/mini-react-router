@@ -12,14 +12,16 @@ export default function BrowserRouter({children}) {
     location: history.location
   });
   useLayoutEffect(() => {
-    //TODO: location 问题
     const unlisten = history.listen(({location}) => {
       setState({location});
     })
    // const unlisten = history.listen(setState);
     return unlisten;
   }, [history])
-
+  //TODO：疑问
+  // history.listen(({location}) => {
+  //   setState({location});
+  // })
   return  <Router children={children} navigator={history} location={state.location} />;
 }
 
